@@ -49,6 +49,8 @@ namespace Notificator.GUI
                 checkBox1.Checked = selectedEvent.Status;
 
                 this.PanelStatus(true);
+
+                buttonDelete.Visible = true;
             }
         }
 
@@ -116,6 +118,8 @@ namespace Notificator.GUI
             checkBox1.Checked = false;
 
             this.PanelStatus(true);
+
+            buttonDelete.Visible = false;
         }
 
         /// <summary>
@@ -131,6 +135,31 @@ namespace Notificator.GUI
             checkBox1.Checked = false;
 
             this.PanelStatus(false);
+
+            buttonDelete.Visible = false;
+        }
+
+        /// <summary>
+        ///  Handles the click event of the "Delete" button
+        /// </summary>
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                EventModel selectedEvent = (EventModel)listBox1.SelectedItem;
+
+                DialogResult result = MessageBox.Show("Are you sure you want to proceed?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    _eventRepository.Delete(selectedEvent.Id);
+
+                    this.PanelStatus(false);
+
+                    //Refresh events list
+                    this.PopulateListBox();
+                }
+            }
         }
 
         /// <summary>

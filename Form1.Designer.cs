@@ -32,6 +32,7 @@ namespace Notificator.GUI
         {
             listBox1 = new ListBox();
             panel1 = new Panel();
+            checkBox1 = new CheckBox();
             buttonCancel = new Button();
             buttonSave = new Button();
             label3 = new Label();
@@ -41,7 +42,7 @@ namespace Notificator.GUI
             label1 = new Label();
             textBox1 = new TextBox();
             buttonNewEvent = new Button();
-            checkBox1 = new CheckBox();
+            buttonDelete = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,6 +58,7 @@ namespace Notificator.GUI
             // 
             // panel1
             // 
+            panel1.Controls.Add(buttonDelete);
             panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(buttonCancel);
             panel1.Controls.Add(buttonSave);
@@ -70,6 +72,16 @@ namespace Notificator.GUI
             panel1.Name = "panel1";
             panel1.Size = new Size(563, 427);
             panel1.TabIndex = 2;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(24, 288);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(85, 19);
+            checkBox1.TabIndex = 9;
+            checkBox1.Text = "Completed";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // buttonCancel
             // 
@@ -98,7 +110,7 @@ namespace Notificator.GUI
             label3.AutoSize = true;
             label3.Location = new Point(24, 222);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(31, 15);
             label3.TabIndex = 5;
             label3.Text = "Date";
             // 
@@ -109,7 +121,7 @@ namespace Notificator.GUI
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(233, 23);
             dateTimePicker1.TabIndex = 4;
-            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker1.Value = new DateTime(2023, 12, 4, 20, 34, 16, 442);
             // 
             // richTextBox1
             // 
@@ -125,7 +137,7 @@ namespace Notificator.GUI
             label2.AutoSize = true;
             label2.Location = new Point(24, 80);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(67, 15);
             label2.TabIndex = 2;
             label2.Text = "Description";
             // 
@@ -134,7 +146,7 @@ namespace Notificator.GUI
             label1.AutoSize = true;
             label1.Location = new Point(24, 17);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(39, 15);
             label1.TabIndex = 1;
             label1.Text = "Name";
             // 
@@ -156,15 +168,15 @@ namespace Notificator.GUI
             buttonNewEvent.UseVisualStyleBackColor = true;
             buttonNewEvent.Click += buttonNewEvent_Click;
             // 
-            // checkBox1
+            // buttonDelete
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(24, 288);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 9;
-            checkBox1.Text = "Completed";
-            checkBox1.UseVisualStyleBackColor = true;
+            buttonDelete.Location = new Point(24, 329);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(75, 23);
+            buttonDelete.TabIndex = 10;
+            buttonDelete.Text = "Delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // Form1
             // 
@@ -179,7 +191,6 @@ namespace Notificator.GUI
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -197,5 +208,6 @@ namespace Notificator.GUI
         private RichTextBox richTextBox1;
         private Label label2;
         private CheckBox checkBox1;
+        private Button buttonDelete;
     }
 }
